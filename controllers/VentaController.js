@@ -38,7 +38,7 @@ export default {
         try {
             const reg=await models.Venta.findOne({ _id:req.query._id })
             .populate('usuario', {nombre: 1})
-            .populate('persona', {nombre: 1}) ;
+            .populate('persona', {nombre: 1, direccion:1, num_documento:1, telefono:1, email:1}) ;
             if (!reg) {
                 res.status(404).send({
                     message: 'El registro no existe'
